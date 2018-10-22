@@ -1,0 +1,3 @@
+[submodule "ws3"]
+	path = ws3
+	url = https://github.com/gparadis/ws3.git
