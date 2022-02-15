@@ -62,13 +62,13 @@ def lev_fvrot1(R, E, A, I, Y, P, Ch, r):
     #result /= pow(1 + r, R) - 1
     return result
 
-def plot_lev(R, E, A, I, Y, P, Ch, r, n):
+def plot_lev(R, E, A, I, Y, P, Ch, r, N):
     _lev_fvrot1 = lev_fvrot1(R, E, A, I, Y, P, Ch, r)
-    X = np.array([(i + 1) * R for i in range(n)])
-    V = np.array([_lev_fvrot1 for i in range(n)])
+    X = np.array([(i + 1) * R for i in range(N)])
+    V = np.array([_lev_fvrot1 for i in range(N)])
     plot_cashflow(X, V, i=r, x_scale=pow(R, -1))
     lev1 = pv_pps(_lev_fvrot1, r, R)
-    lev2 = pv_tps(_lev_fvrot1, r, R, n)
+    lev2 = pv_tps(_lev_fvrot1, r, R, N)
     print('LEV: $%0.2f' % lev1)
     print('relative truncation error: %0.2f%%' % (100. * (lev2 - lev1) / lev1))
   
